@@ -12,7 +12,21 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const routes = [
+
+const AppHeader = require('./components/AppHeader.vue');
+const AppFooter = require('./components/AppFooter.vue');
+const Home = require('./components/Home.vue');
+const About = require('./components/About.vue');
+
+const routes = [{
+        path: '/',
+        component: Home,
+    },
+    {
+        path: '/about',
+        component: About
+    }
+
 
 ]
 
@@ -26,9 +40,13 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    components: {
+        AppHeader,
+        AppFooter
+    }
 });
