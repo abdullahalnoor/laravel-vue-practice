@@ -46549,6 +46549,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.post("http://localhost/bifumes-pp/public/phonebook", this.$data.lists).then(function (res) {
         console.log(res.data);
         _this.$parent.lists.push(res.data);
+        _this.$parent.lists.sort(function (a, b) {
+          if (a.name > b.name) {
+            return 1;
+          } else if (a.name < b.name) {
+            return -1;
+          }
+        });
+        _this.lists = "";
       }).catch(function (error) {
         _this.errors = error.response.data.errors;
       });

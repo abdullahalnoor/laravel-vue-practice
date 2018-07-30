@@ -62,6 +62,14 @@ export default {
         .then(res => {
           console.log(res.data);
           this.$parent.lists.push(res.data);
+          this.$parent.lists.sort(function(a, b) {
+            if (a.name > b.name) {
+              return 1;
+            } else if (a.name < b.name) {
+              return -1;
+            }
+          });
+          this.lists = "";
         })
         .catch(error => {
           this.errors = error.response.data.errors;
