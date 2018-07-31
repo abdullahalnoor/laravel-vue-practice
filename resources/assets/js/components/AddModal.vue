@@ -61,6 +61,7 @@ export default {
         .post("http://localhost/bifumes-pp/public/phonebook", this.$data.lists)
         .then(res => {
           console.log(res.data);
+          this.close();
           this.$parent.lists.push(res.data);
           this.$parent.lists.sort(function(a, b) {
             if (a.name > b.name) {
